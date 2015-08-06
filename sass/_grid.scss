@@ -1,0 +1,87 @@
+// Variables
+$max-col: 12!default;
+$gutter: 20px!default;
+//$small: 0 < 640px
+$medium: 640px!default; // 640px < 1040px
+$large: 1040px!default; // > 1040px
+
+// Placeholder
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// Mixins
+@mixin responsive-columns($suffix: '') {
+  @for $i from 0 through $max-col {
+    @if $i != 0 {
+      //general col behavior
+      .col#{$suffix}-#{$i} {
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding: 0 $gutter * 0.5;
+      }
+      //col width behavior
+      .col#{$suffix}-#{$i} {
+        width: $i / $max-col * 100%;
+      }
+    }
+    // push system
+    .col-push#{$suffix}-#{$i} {
+      left: $i / $max-col * 100%;
+    }
+    // pull system
+    .col-pull#{$suffix}-#{$i} {
+      right: $i / $max-col * 100%;
+    }
+  }
+  // center columns
+  .col-center#{$suffix} {
+    margin: 0 auto;
+    float: none;
+  }
+}
+
+/* Grid System */
+.row {
+  //margin: 0  (- $gutter * 0.5);
+  padding: 0 (- $gutter * 0.5);
+  @extend %clearfix;
+}
+
+// Generic
+@include responsive-columns();
+.hide {
+  display: none;
+}
+// Small screen
+@include responsive-columns('-s');
+.hide-s, .show-m, .show-l {
+  display: none;
+}
+.hide-m, .hide-l{
+  display: block;
+}
+// Medium screen
+@media only screen and (min-width: $medium) {
+  @include responsive-columns('-m');
+  .hide-m,.hide-s,.show -l {
+    display: none;
+  }
+  .show-m {
+    display: block;
+  }
+}
+
+// Large screen
+@media only screen and (min-width: $large) {
+  @include responsive-columns('-l');
+  .hide-s,.hide-m,.hide-l {
+    display: none;
+  }
+  .show-l {
+    display: block;
+  }
+}

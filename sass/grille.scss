@@ -1,9 +1,8 @@
-/*@import "_normalize.scss";*/
 @import "_boxsizing.scss";
 @import "_clearfix.scss";
 @import "_grid.scss";
 
-/* Exemple */
+// Exemple
 body {
   font-family: 'Josefin Slab', serif;
   color: #555;
@@ -18,17 +17,17 @@ label[for] {
   cursor: pointer;
 }
 ::-moz-selection {
-  background-color: #F5D4D3;
+  background-color: rgba(red,.15);
   text-shadow: none;
 }
 ::selection {
   background-color: rgba(red,.15);
   text-shadow: none;
 }
-img::selection {
+img::-moz-selection {
   background: transparent;
 }
-img::-moz-selection {
+img::selection {
   background: transparent;
 }
 
@@ -60,7 +59,8 @@ h2 {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
 }
 
 .panel {

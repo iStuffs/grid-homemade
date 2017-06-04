@@ -5,6 +5,12 @@ $gutter: 20px!default;
 $medium: 640px!default; // 640px < 1040px
 $large: 1040px!default; // > 1040px
 
+// Placeholder
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 // Mixins
 @mixin responsive-columns($suffix: '') {
@@ -61,7 +67,7 @@ $large: 1040px!default; // > 1040px
 // Medium screen
 @media only screen and (min-width: $medium) {
   @include responsive-columns('-m');
-  .hide-m,.hide-s,.show-l {
+  .hide-m,.hide-s,.show -l {
     display: none;
   }
   .show-m {

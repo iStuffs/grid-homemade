@@ -31,6 +31,11 @@ img::selection {
   background: transparent;
 }
 
+.wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
 h1 {
   font-weight: 300;
 }

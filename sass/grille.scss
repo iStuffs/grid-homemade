@@ -2,10 +2,13 @@
 @import "_clearfix.scss";
 @import "_grid.scss";
 
-// Exemple
+$color-text: #555;
+//$color-primary: rgba(red,.15);
+$color-primary: #f3d4d3;
+
 body {
   font-family: 'Josefin Slab', serif;
-  color: #555;
+  color: $color-text;
 }
 
 html, body {
@@ -16,12 +19,13 @@ html, body {
 label[for] {
   cursor: pointer;
 }
+
 ::-moz-selection {
-  background-color: rgba(red,.15);
+  background-color: $color-primary;
   text-shadow: none;
 }
 ::selection {
-  background-color: rgba(red,.15);
+  background-color: $color-primary;
   text-shadow: none;
 }
 img::-moz-selection {
@@ -31,16 +35,25 @@ img::selection {
   background: transparent;
 }
 
+a {
+  font-weight: 700;
+  color: darken($color-primary, 10);
+  transition: all ease-in-out .2s;
+  &:hover {
+    color: $color-primary;
+  }
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1024px;
 }
 
-h1 {
+.header-title {
   font-weight: 300;
 }
 
-h2 {
+.panel-title {
   color:#535353;
   font-size: 42px;
   font-weight: 400;
@@ -48,7 +61,7 @@ h2 {
 }
 
 .header {
-  border-color: #F3D4D3;
+  border-color: $color-primary;
   background-image: url('../images/grid.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -73,7 +86,7 @@ h2 {
 }
 
 .gridExemple div[class^="col-"] {
-  border: 1px solid #F3D4D3;
+  border: 1px solid $color-primary;
   padding: 4px;
   padding-left: 10px;
 }
